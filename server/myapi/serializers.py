@@ -6,4 +6,4 @@ from .models import TodoItem
 class TodoItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TodoItem
-        fields = ('name', 'done')
+        fields = ('id', 'name', 'done')
