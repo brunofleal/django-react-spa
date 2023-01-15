@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainPage from './pages/MainPage';
+import { ChakraBaseProvider } from '@chakra-ui/react';
+import theme from './shared/theme';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SampleStaticPage from './pages/SampleStaticPage';
+import SampleApiPage from './pages/SampleApi';
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraBaseProvider theme={theme}>
+      <div className='App'>
+        <header className='App-header'>
+        </header>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/sample-static" element={<SampleStaticPage />} />
+            <Route path="/sample-api" element={<SampleApiPage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ChakraBaseProvider>
   );
 }
 
